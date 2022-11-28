@@ -25,7 +25,7 @@ class ServicesComponent extends Component
     public function render()
     {
         return view('livewire.services-component', [
-            'services' => Service::paginate(10)
+            'services' => Service::where('area_id', $this->area->id)->paginate(10)
         ]);
     }
 

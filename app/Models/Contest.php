@@ -20,4 +20,9 @@ class Contest extends Model
     {
         return $this->belongsTo(Area::class);
     }
+
+    public function files()
+    {
+        return $this->hasMany(ContestFile::class);
+    }
 }
