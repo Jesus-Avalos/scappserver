@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/get/sliders', [ApiController::class, 'getSliders']);
 Route::get('/get/eventos', [ApiController::class, 'getEvents']);
 Route::get('/get/areas', [ApiController::class, 'getAreas']);
+Route::get('/get/data', [ApiController::class, 'getData']);
