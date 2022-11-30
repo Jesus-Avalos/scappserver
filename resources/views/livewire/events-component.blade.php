@@ -98,7 +98,7 @@
                                         alt="{{ $event->title }}" style="width: auto; height: 80px;"></td>
                                 <td class="text-center">
                                     @if ($event->secondary_image !== 'default-image.jpg')
-                                        <img src="{{ asset('storage/events/' . $event->secondary_image) }}"
+                                        <img src="{{ asset('storage/events/secondary/' . $event->secondary_image) }}"
                                             alt="{{ $event->title }}" style="width: auto; height: 80px;">
                                     @else
                                         <i>Ninguna</i>

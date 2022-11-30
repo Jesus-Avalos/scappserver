@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Event;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -37,6 +38,7 @@ class EventsComponent extends Component
             $this->validate([
                 'title' => 'required',
                 'description' => 'required',
+                'primary_image' => 'required',
             ]);
             $eventNew = [];
             $eventNew['title'] = $this->title;
@@ -114,7 +116,7 @@ class EventsComponent extends Component
         try {
             $image = $type === 'primary' ? $this->primary_image : $this->secondary_image;
             $extension = $image->getClientOriginalExtension();
-            $filename = str_replace(' ', '-', $this->title) . '.' . $extension;
+            $filename = Str::slug($this->title) . '.' . $extension;
             $image->storeAs('public/events/' . $type, $filename);
         } catch (\Exception $e) {
             Log::error('Line => ' . $e->getLine() . ' Message => ' . $e->getMessage());
